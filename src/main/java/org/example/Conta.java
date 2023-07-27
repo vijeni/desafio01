@@ -1,20 +1,19 @@
 package org.example;
 
 public class Conta {
+    private String nomeTitular;
+    private Number deposito;
+    private Number resgate;
+    private Number saldo;
 
-private String nomeTitular;
-private Number deposito;
-private Number resgate;
-private Number saldo;
-
-private boolean isValida;
+    private boolean isValida;
 
     public boolean isValida() {
         return isValida;
     }
 
     public void setValida(boolean valida) {
-        isValida = valida;
+        this.isValida = valida;
     }
 
     public String getNomeTitular() {
