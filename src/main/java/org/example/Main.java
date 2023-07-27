@@ -46,12 +46,24 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("Depósito");
+                    System.out.println("Digite o valor que você deseja DEPOSITAR");
+                    Scanner scanner = new Scanner(System.in);
+                   double valor = scanner.nextDouble();
+                    conta.depositar(valor);
                     break;
                 case 4:
                     System.out.println("Saque");
+                    System.out.println("Digite o valor que você deseja SACAR");
+                    Scanner scanner1 = new Scanner(System.in);
+                    valor = scanner1.nextDouble();
+                    conta.resgatar(valor);
                     break;
                 case 5:
-                    System.out.println("INvestir");
+                    System.out.println("Investir");
+                    System.out.println("Digite o valor que você deseja INVESTIR");
+                    Scanner scanner3 = new Scanner(System.in);
+                    valor = scanner3.nextDouble();
+                    conta.investir(valor);
                     break;
                 default:
                     System.out.println("Inválido");

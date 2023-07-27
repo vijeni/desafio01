@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Scanner;
+
 public class Conta {
     private String nomeTitular;
 
@@ -25,9 +27,6 @@ public class Conta {
         this.setValida(true);
     }
 
-
-
-
     public Number getSaldo() {
         return saldo;
     }
@@ -40,9 +39,12 @@ public class Conta {
     }
 
     public void resgatar(double valor){
+
         this.saldo -= valor;
+
     }
     public void depositar(double valor){
+
         this.saldo += valor;
     }
     public void investir(double valorInvestimento){
