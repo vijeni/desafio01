@@ -43,7 +43,6 @@ public class Conta {
         else{
             System.out.println("Você não possui tanto saldo assim...");
         }
-        this.saldo -= valor;
 
     }
     public void depositar(double valor){
@@ -51,7 +50,7 @@ public class Conta {
         this.saldo += valor;
     }
     public void investir(double valorInvestimento){
-        if(valorInvestimento >= this.saldo){
+        if(valorInvestimento <= this.saldo){
             this.saldo -= valorInvestimento;
             this.valorInvestido = valorInvestimento;
         }
@@ -60,7 +59,7 @@ public class Conta {
         }
     }
     public void rendimento(double taxa){
-        this.valorInvestido = (this.valorInvestido * taxa) / 100;
+        this.valorInvestido += (this.valorInvestido * taxa) / 100;
     }
 
 

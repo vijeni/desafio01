@@ -1,13 +1,16 @@
 package org.example;
-
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         boolean executando = true;
         Conta conta = new Conta();
+        int sair = 1;
         do{
-            int sair = 1;
+            if(sair == 0){
+                executando = false;
+                break;
+            }
             System.out.println("================= BEM VINDO AO VINEJI BANK =================\n");
             System.out.println("======== Selecione a operação que deseja fazer:");
             if(!conta.isValida()){
@@ -37,13 +40,12 @@ public class Main {
                     input.nextLine();
                     String nomeTitular = input.nextLine();
                     conta.setNomeTitular(nomeTitular);
-                    System.out.println("\n\n\n");
+                    System.out.println("\n\n");
                     System.out.println("- Deseja retornar ao menu?");
                     System.out.println("- ( 0 ) Sair");
                     System.out.println("- ( 1 ) Voltar ao menu");
                     System.out.println("- Digite o número da operação:");
                     sair = input.nextInt();
-                    System.out.println((sair));
                     if(sair == 0){
                         executando = false;
                     }
@@ -51,7 +53,7 @@ public class Main {
                 case 2:
                     sair = 1;
                     System.out.println("=========== Seu saldo é: " + conta.getSaldo());
-                    System.out.println("\n\n\n");
+                    System.out.println("\n\n");
                     System.out.println("- Deseja retornar ao menu?");
                     System.out.println("- ( 0 ) Sair");
                     System.out.println("- ( 1 ) Voltar ao menu");
@@ -64,7 +66,7 @@ public class Main {
                     System.out.println("Digite o valor que você deseja DEPOSITAR");
                     double valor = input.nextDouble();
                     conta.depositar(valor);
-                    System.out.println("\n\n\n");
+                    System.out.println("\n\n");
                     System.out.println("- Deseja retornar ao menu?");
                     System.out.println("- ( 0 ) Sair");
                     System.out.println("- ( 1 ) Voltar ao menu");
@@ -78,7 +80,7 @@ public class Main {
                     Scanner scanner1 = new Scanner(System.in);
                     valor = scanner1.nextDouble();
                     conta.resgatar(valor);
-                    System.out.println("\n\n\n");
+                    System.out.println("\n\n");
                     System.out.println("- Deseja retornar ao menu?");
                     System.out.println("- ( 0 ) Sair");
                     System.out.println("- ( 1 ) Voltar ao menu");
@@ -91,7 +93,7 @@ public class Main {
                     System.out.println("- Digite o valor que você deseja INVESTIR:");
                     valor = input.nextDouble();
                     conta.investir(valor);
-                    System.out.println("\n\n\n");
+                    System.out.println("\n\n");
                     System.out.println("- Deseja retornar ao menu?");
                     System.out.println("- ( 0 ) Sair");
                     System.out.println("- ( 1 ) Voltar ao menu");
@@ -111,10 +113,10 @@ public class Main {
                     break;
                 default:
                     System.out.println("Inválido");
+                    System.out.println("\n\n\n");
                     break;
             }
             conta.rendimento(5);
         }while (executando);
     }
-
 }
