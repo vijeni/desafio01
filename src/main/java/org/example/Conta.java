@@ -1,3 +1,4 @@
+package org.example;
 
 public class Conta {
 
@@ -6,12 +7,23 @@ private Number deposito;
 private Number resgate;
 private Number saldo;
 
+private boolean isValida;
+
+    public boolean isValida() {
+        return isValida;
+    }
+
+    public void setValida(boolean valida) {
+        isValida = valida;
+    }
+
     public String getNomeTitular() {
         return nomeTitular;
     }
 
     public void setNomeTitular(String nomeTitular) {
         this.nomeTitular = nomeTitular;
+        this.setValida(true);
     }
 
     public Number getDeposito() {
@@ -38,10 +50,8 @@ private Number saldo;
         this.saldo = saldo;
     }
 
-    public Conta(String nomeTitular, Number deposito, Number resgate) {
-        this.nomeTitular = nomeTitular;
-        this.deposito = deposito;
-        this.resgate = resgate;
+    public Conta() {
         this.saldo = 100;
+        this.setValida(false);
     }
 }

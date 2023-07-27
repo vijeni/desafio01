@@ -5,13 +5,17 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         boolean executando = true;
+        Conta conta = new Conta();
         do{
             System.out.println("================= BEM VINDO AO VINEJI BANK =================\n");
             System.out.println("======== Selecione a operação que deseja fazer:");
-            System.out.println("( 1 ) - Criar conta");
-            System.out.println("( 2 ) - Ver saldo");
-            System.out.println("( 3 ) - Depósito");
-            System.out.println("( 4 ) - Saque");
+            if(conta.isValida()){
+                System.out.println("( 1 ) - Criar conta");
+            }else{
+                System.out.println("( 2 ) - Ver saldo");
+                System.out.println("( 3 ) - Depósito");
+                System.out.println("( 4 ) - Saque");
+            }
             System.out.println("- Digite o número da operação:");
 
             Scanner input = new Scanner(System.in);
@@ -21,7 +25,9 @@ public class Main {
 
             switch (opc){
                 case 1:
-                    System.out.println("Criar");
+                    System.out.println("- Digite o nome completo do titular:");
+                    String nomeTitular = input.nextLine();
+                    conta.setNomeTitular(nomeTitular);
                     break;
                 case 2:
                     System.out.println("Saldo");
