@@ -2,9 +2,9 @@ package org.example;
 
 public class Conta {
     private String nomeTitular;
-    private Number deposito;
-    private Number resgate;
-    private Number saldo;
+
+    private double saldo;
+    private double valorInvestido;
 
     private boolean isValida;
 
@@ -25,32 +25,35 @@ public class Conta {
         this.setValida(true);
     }
 
-    public Number getDeposito() {
-        return deposito;
-    }
 
-    public void setDeposito(Number deposito) {
-        this.deposito = deposito;
-    }
 
-    public Number getResgate() {
-        return resgate;
-    }
-
-    public void setResgate(Number resgate) {
-        this.resgate = resgate;
-    }
 
     public Number getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(Number saldo) {
-        this.saldo = saldo;
-    }
+
 
     public Conta() {
         this.saldo = 100;
         this.setValida(false);
     }
+
+    public void resgatar(double valor){
+        this.saldo -= valor;
+    }
+    public void depositar(double valor){
+        this.saldo += valor;
+    }
+    public void investir(double valorInvestimento){
+        if(valorInvestimento >= this.saldo){
+            this.saldo -= valorInvestimento;
+        }
+        else{
+            System.out.println("O valor de investimento é menor que o valor que você possui em conta.");
+        }
+    }
+
+
+
 }
