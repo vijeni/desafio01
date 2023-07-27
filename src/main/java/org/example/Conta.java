@@ -4,10 +4,15 @@ import java.util.Scanner;
 
 public class Conta {
     private String nomeTitular;
-
     private double saldo;
     private double valorInvestido;
-
+    public Conta() {
+        this.saldo = 100;
+        this.setValida(false);
+    }
+    public double getValorInvestido() {
+        return valorInvestido;
+    }
     private boolean isValida;
 
     public boolean isValida() {
@@ -29,13 +34,6 @@ public class Conta {
 
     public Number getSaldo() {
         return saldo;
-    }
-
-
-
-    public Conta() {
-        this.saldo = 100;
-        this.setValida(false);
     }
 
     public void resgatar(double valor){
@@ -60,6 +58,9 @@ public class Conta {
         else{
             System.out.println("O valor de investimento é menor que o valor que você possui em conta.");
         }
+    }
+    public void rendimento(double taxa){
+        this.valorInvestido = (this.valorInvestido * taxa) / 100;
     }
 
 
