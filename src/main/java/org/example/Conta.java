@@ -39,7 +39,12 @@ public class Conta {
     }
 
     public void resgatar(double valor){
-
+        if(valor <= this.saldo){
+            this.saldo -= valor;
+        }
+        else{
+            System.out.println("Você não possui tanto saldo assim...");
+        }
         this.saldo -= valor;
 
     }
@@ -50,6 +55,7 @@ public class Conta {
     public void investir(double valorInvestimento){
         if(valorInvestimento >= this.saldo){
             this.saldo -= valorInvestimento;
+            this.valorInvestido = valorInvestimento;
         }
         else{
             System.out.println("O valor de investimento é menor que o valor que você possui em conta.");
